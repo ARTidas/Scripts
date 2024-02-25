@@ -1,5 +1,36 @@
 $ git init -b main
+> Initialized empty Git repository in /home/student/scripts/.git/
 $ git init && git symbolic-ref HEAD refs/heads/main
+> main
+> Reinitialized existing Git repository in /home/student/scripts/.git/
 $ git add .
 $ git commit -m "Initializing repository"
+> [main (root-commit) eb45e1f] Initializing repository
+>  5 files changed, 95 insertions(+)
+>  create mode 100644 add_user.sh
+>  create mode 100644 create_vm.readme
+>  create mode 100644 create_vm.sh
+>  create mode 100644 git_repo_start.readme
+>  create mode 100644 test.c
 $ gh repo create
+> ? What would you like to do? Push an existing local repository to GitHub
+> ? Path to local repository .
+> ? Repository name Scripts
+> ? Description 
+> ? Visibility Public
+> ✓ Created repository ARTidas/Scripts on GitHub
+>   https://github.com/ARTidas/Scripts
+> ? Add a remote? Yes
+> ? What should the new remote be called? origin
+> ✓ Added remote https://github.com/ARTidas/Scripts.git
+> ? Would you like to push commits from the current branch to "origin"? Yes
+> Enumerating objects: 7, done.
+> Counting objects: 100% (7/7), done.
+> Delta compression using up to 4 threads
+> Compressing objects: 100% (7/7), done.
+> Writing objects: 100% (7/7), 2.18 KiB | 2.18 MiB/s, done.
+> Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+> To https://github.com/ARTidas/Scripts.git
+>  * [new branch]      HEAD -> main
+> Branch 'main' set up to track remote branch 'main' from 'origin'.
+> ✓ Pushed commits to https://github.com/ARTidas/Scripts.git
