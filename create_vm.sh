@@ -1,5 +1,17 @@
 #!/bin/bash
-VMNAME=$1
+VMNAME="$1"
+
+# Check if VM name is provided
+if [ -z "$VMNAME" ]; then
+    echo "Usage: $0 <VM_NAME>"
+    exit 1
+fi
+
+# Error handling function
+handle_error() {
+    echo "Error: $1" >&2
+    exit 1
+}
 
 # Check if debian.iso exist, then download if not
 if [ ! -f ./debian.iso ]; then
