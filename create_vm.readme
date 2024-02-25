@@ -1,0 +1,46 @@
+Documentation:
+* https://docs.google.com/document/d/15V9e15iNzkXx4SBkxOF3eUXAZ0pLFVdHzWBsZQoyi9Y/edit?usp=sharing
+
+Usage of the script:
+* student@student-thedemo:~$ sh scripts/create_vm.sh PTIDebian
+
+Notes:
+* Do not use space or any special character in the VMs name
+* Base hard disk space is set to 50GB
+* Base memory is set to 2GB
+* Base video memory (VRAM) is set to 128MB
+* RDP port is set to 3389
+
+Script output:
+student@student-thedemo:~$ sh scripts/create_vm.sh PTIDebian
+--2024-02-25 22:01:03--  https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.5.0-amd64-netinst.iso
+Resolving cdimage.debian.org (cdimage.debian.org)... 194.71.11.173, 194.71.11.165, 194.71.11.163, ...
+Connecting to cdimage.debian.org (cdimage.debian.org)|194.71.11.173|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://gemmei.ftp.acc.umu.se/debian-cd/current/amd64/iso-cd/debian-12.5.0-amd64-netinst.iso [following]
+--2024-02-25 22:01:04--  https://gemmei.ftp.acc.umu.se/debian-cd/current/amd64/iso-cd/debian-12.5.0-amd64-netinst.iso
+Resolving gemmei.ftp.acc.umu.se (gemmei.ftp.acc.umu.se)... 194.71.11.137, 2001:6b0:19::137
+Connecting to gemmei.ftp.acc.umu.se (gemmei.ftp.acc.umu.se)|194.71.11.137|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 659554304 (629M) [application/x-iso9660-image]
+Saving to: ‘debian.iso’
+
+debian.iso          100%[===================>] 629,00M  2,89MB/s    in 4m 39s  
+
+2024-02-25 22:05:43 (2,25 MB/s) - ‘debian.iso’ saved [659554304/659554304]
+
+Virtual machine 'PTIDebian' is created and registered.
+UUID: bdb06339-23db-4570-8aef-13b71a6d9d7a
+Settings file: '/home/student/PTIDebian/PTIDebian.vbox'
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+Medium created. UUID: 0288d979-00f4-4bd2-bc9f-ce32ca794b6e
+Oracle VM VirtualBox Headless Interface 6.1.50_Ubuntu
+(C) 2008-2024 Oracle Corporation
+All rights reserved.
+
+Starting virtual machine: 25/02/2024 22:05:45 Listening for VNC connections on TCP port 3389
+25/02/2024 22:05:45 Listening for VNC connections on TCP6 port 5900
+VRDE server is listening on port 3389.
+10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+
+
