@@ -37,12 +37,14 @@ VBoxManage createhd --filename "$(pwd)/$VMNAME/$VMNAME_DISK.vdi" --size 50000 --
 VBoxManage storagectl "$VMNAME" --name "SATA Controller" --add sata --controller IntelAhci || handle_error "Failed to add SATA controller"
 VBoxManage storageattach "$VMNAME" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "$(pwd)/$VMNAME/$VMNAME_DISK.vdi" || handle_error "Failed to attach disk"
 
-# Mount Debian ISO
+# Add IDE Controller
 VBoxManage storagectl "$VMNAME" --name "IDE Controller" --add ide --controller PIIX4 || handle_error "Failed to add IDE controller"
+
+# Mount Debian ISO
 VBoxManage storageattach "$VMNAME" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium "$(pwd)/Debian.iso" --mtype readonly || handle_error "Failed to attach Debian ISO"
 
 # Mount Guest Additions ISO
-VBoxManage storageattach "$VMNAME" --storagectl "IDE Controller" --port 0 --device 1 --type dvddrive --medium "$(pwd)/VBoxGuestAdditions.iso" || handle_error "Failed to attach Guest Additions ISO"
+VBoxManage storageattach "$VMNAME" --storagectl "IDE Controller" --port 1 --device 1 --type dvddrive --medium "$(pwd)/VBoxGuestAdditions.iso" || handle_error "Failed to attach Guest Additions ISO"
 
 # Set boot priority
 VBoxManage modifyvm "$VMNAME" --boot1 dvd --boot2 disk --boot3 none --boot4 none || handle_error "Failed to set boot priority"
