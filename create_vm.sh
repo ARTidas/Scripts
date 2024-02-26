@@ -20,11 +20,11 @@ fi
 
 # Download Guest Additions ISO if not available
 if [ ! -f ./VBoxGuestAdditions.iso ]; then
-    sudo wget https://download.virtualbox.org/virtualbox/6.1.30/VBoxGuestAdditions_6.1.30.iso -O VBoxGuestAdditions.iso || handle_error "Failed to download Guest Additions ISO"
+    wget https://download.virtualbox.org/virtualbox/6.1.30/VBoxGuestAdditions_6.1.30.iso -O VBoxGuestAdditions.iso || handle_error "Failed to download Guest Additions ISO"
 fi
 
 # Create VM
-VBoxManage createvm --name "$VMNAME" --ostype "Debian_64" --register --basefolder "$(pwd)" || handle_error "Failed to create VM"
+VBoxManage createvm --name "$VMNAME" --ostype "Debian_64" --register --basefolder "$(pwd)" || handle_error "Failed to create $VMNAME VM"
 
 # Enable I/O APIC support
 VBoxManage modifyvm "$VMNAME" --ioapic on || handle_error "Failed to enable I/O APIC"
@@ -58,4 +58,4 @@ VBoxManage modifyvm "$VMNAME" --nic1 nat || handle_error "Failed to add network 
 VBoxManage modifyvm "$VMNAME" --natpf1 "ssh,tcp,,3022,,22" || handle_error "Failed to configure port forwarding"
 
 # Start the VM once ready
-VBoxHeadless --startvm "$VMNAME" || handle_error "Failed to start VM"
+VBoxHeadless --startvm "$VMNAME" || handle_error "Failed to start $VMNAME VM"
