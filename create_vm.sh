@@ -31,6 +31,7 @@ if [ ! -d "$VMFOLDER" ]; then
 else
     echo "Folder already exists at $VMFOLDER"
 fi
+
 # Create folder if not exists and assign user:group
 if [ ! -d "$VMIMAGESFOLDER" ]; then
     # Create the folder if it doesn't exist
@@ -47,9 +48,9 @@ if [ ! -f $VMIMAGESFOLDER/Debian.iso ]; then
 fi
 
 # Download Guest Additions ISO if not available
-if [ ! -f $VMIMAGESFOLDER/VBoxGuestAdditions.iso ]; then
-    wget https://download.virtualbox.org/virtualbox/6.1.30/VBoxGuestAdditions_6.1.30.iso -O $VMIMAGESFOLDER/VBoxGuestAdditions.iso || handle_error "Failed to download Guest Additions ISO"
-fi
+#if [ ! -f $VMIMAGESFOLDER/VBoxGuestAdditions.iso ]; then
+#    wget https://download.virtualbox.org/virtualbox/6.1.30/VBoxGuestAdditions_6.1.30.iso -O $VMIMAGESFOLDER/VBoxGuestAdditions.iso || handle_error "Failed to download Guest Additions ISO"
+#fi
 
 # Shutdown and Remove VM if already exists # TODO
 # virsh suspend $VMNAME
