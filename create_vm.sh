@@ -94,3 +94,8 @@ virt-install \
 # Start the VM once ready
 # virsh start "$VMNAME" || handle_error "Failed to start $VMNAME VM"
 virsh start "$VMNAME"
+
+# Connect to VM
+# virsh console PTI1
+# virsh --connect qemu:///session start PTI1
+# virt-manager --connect=qemu:///session
